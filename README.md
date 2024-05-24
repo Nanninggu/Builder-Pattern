@@ -43,7 +43,8 @@ public class User {
 
 \- DB에 Insert된 결과는 아래와 같다. name 필드에 값이 없으므로, null로 표시 되었고, email 필드의 값만 insert된것을 확인 할 수 있다. 이렇듯, 필드 값을 원하는 값만 세팅하여 적용 할 수 있으므로 편리하다.
 
-[##_Image|kage@b3nw2C/btsHq8pmJ7k/E7aUKkyYLPfNKK6URlRGkK/img.png|CDM|1.3|{"originWidth":501,"originHeight":150,"style":"alignLeft","width":314,"height":94}_##]
+![다운로드](https://github.com/Nanninggu/Builder-Pattern/assets/54211801/88e56c9e-40ff-40c1-a959-defe85dd0485)
+
 
 **\- 불변성을 확보 할 수있다.**
 
@@ -78,6 +79,21 @@ public class User {
 final 키워드는 수동으로 적용 해야한다.
 
 성능이 약간 저하 될수는 있으나, 큰 차이는 없다.
+
+#### **2\. CoreLogic 설명**
+
+```
+빌더 패턴의 핵심 로직은 복잡한 객체를 생성하는 과정을 단계별로 나누는 것이다. 
+이 프로젝트에서는 User 객체를 생성하는 데 빌더 패턴을 사용하고 있다.  
+User.UserBuilder: User 객체를 생성하기 위한 빌더 클래스이다. 
+	setName과 setEmail 메서드를 통해 User 객체의 필드를 설정하고,
+    build 메서드를 통해 설정된 필드를 가진 User 객체를 생성한다.
+UserService: UserBuilder를 사용하여 User 객체를 생성하고, 이를 UserMapper를 통해 
+	데이터베이스에 삽입하는 로직을 담당한다.  
+UserMapper: User 객체를 데이터베이스에 삽입하는 SQL 쿼리를 정의한다.  
+	이렇게 빌더 패턴을 사용하면 객체 생성 과정을 단계별로 나누어 코드의 가독성을 높이고, 
+    필요한 필드만을 선택적으로 설정할 수 있다.
+```
 
 ### 2\. FlowDiagram
 
